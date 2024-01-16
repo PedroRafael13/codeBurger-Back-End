@@ -21,15 +21,10 @@ class Database{
       model.associate(this.connection.models))
   }
 
-  mongo(){
-    this.mongoConnection = mongoose.connect(
-      'mongo1db://localhost:27017/codeburger',
-      {
-        useNewUrlParser:true,
-        useUnifieldTopology:true,
-      }
-    )
+  mongo() {
+    this.mongoConnection = mongoose.connect('mongodb://localhost:27017/codeburguer');
   }
+  
 }
 
 export default new Database()

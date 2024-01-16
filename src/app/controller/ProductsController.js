@@ -32,7 +32,7 @@ class ProductController{
      include : [
       {
         model : Category,
-        as: 'categories',
+        as: 'category',
         attributes : ['id', 'name'],
       },
      ],
