@@ -1,6 +1,7 @@
 import * as Yup from 'yup'
 import Category from '../Models/Category'
 import Products from '../Models/Product'
+import User from '../Models/User'
 import Order from '../schemas/Order'
 class OrderController{
   async store(request,response){
@@ -74,6 +75,11 @@ class OrderController{
       return response.status(400).json({error: err.errors })
     }
 
+    const { admin: isAdmin} = await User.findByPk(request.userId)
+
+    if(!isAdmin){
+      return response.status(401).json()
+    }
 
     const {id} = request.params
     const {status} = request.body
