@@ -24,7 +24,7 @@ class CategoryController{
     const { filename: path } = request.file
 
     const categoryExist = await Category.findOne({
-      where : {name},
+      where : {name, path},
     })
 
     if(categoryExist){
